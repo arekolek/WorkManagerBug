@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:medium.com)",
+      "Bash(cp -r /Users/arol/StudioProjects/GlanceBackgroundBug/app/src/main/res/mipmap-anydpi/* /Users/arol/StudioProjects/GlanceBackgroundBug/workmanager-bug/src/main/res/mipmap-anydpi/)",
+      "Bash(cp -r /Users/arol/StudioProjects/GlanceBackgroundBug/app/src/main/res/drawable/ic_launcher_background.xml /Users/arol/StudioProjects/GlanceBackgroundBug/workmanager-bug/src/main/res/drawable/)",
+      "Bash(cp -r /Users/arol/StudioProjects/GlanceBackgroundBug/app/src/main/res/drawable/ic_launcher_foreground.xml /Users/arol/StudioProjects/GlanceBackgroundBug/workmanager-bug/src/main/res/drawable/)"
+    ]
+  }
+}

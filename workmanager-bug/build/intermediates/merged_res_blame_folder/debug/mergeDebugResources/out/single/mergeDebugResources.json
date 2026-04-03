@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/drawable_ic_refresh.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/mipmap-anydpi_ic_launcher_round.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/mipmap-anydpi/ic_launcher_round.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/mipmap-anydpi_ic_launcher.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/mipmap-anydpi/ic_launcher.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/layout_widget_timestamp.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/layout/widget_timestamp.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/xml_timestamp_widget_info.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/xml/timestamp_widget_info.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "io.github.arekolek.workmanagerbug.workmanager-bug-debug-57:/drawable_ic_launcher_background.xml.flat",
+        "source": "io.github.arekolek.workmanagerbug.workmanager-bug-main-59:/drawable/ic_launcher_background.xml"
+    }
+]

@@ -1,0 +1,14 @@
+R_DEF: Internal format may change without notice
+local
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_refresh
+id btn_refresh
+id tv_local_time
+id tv_result
+layout widget_timestamp
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Theme.WorkManagerBug
+xml timestamp_widget_info
