@@ -19,6 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GlanceBackgroundBug"
+rootProject.name = "WorkManagerBug"
 include(":app")
-include(":workmanager-bug")

@@ -11,10 +11,10 @@ A `CoroutineWorker` with `setRequiredNetworkType(NetworkType.CONNECTED)` starts 
 ## How to test
 
 1. Install the app and pin the widget to your home screen
-2. Tap **"Update via AlarmManager"** or **"Update via WorkManager"** — both schedule an update in 60 seconds and close the activity
+2. Tap **"Update via AlarmManager"** or **"Update via WorkManager"** — both schedule an update and close the activity
 3. Wait on the launcher and watch the widget + logcat
 
-Filter logcat by: `tag:NetworkFetch|UpdateWidgetWorker|UpdateWidgetReceiver`
+Filter logcat by: `package:mine tag~:NetworkFetch|UpdateWidgetWorker|UpdateWidgetReceiver`
 
 ## What to expect
 
@@ -32,11 +32,6 @@ Worker attempt #2 — OK (HTTP 204)
 ```
 
 **WorkManager 2.9.1** — works correctly (network is available when the worker starts).
-
-## Dependencies
-
-- `androidx.work:work-runtime-ktx:2.10.5`
-- No Glance, no other heavyweight dependencies
 
 ## Structure
 
