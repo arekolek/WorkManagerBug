@@ -28,11 +28,11 @@ class UpdateWidgetWorker(
 
     companion object {
         fun schedule(context: Context) {
-            Log.d("UpdateWidgetWorker", "Scheduling worker in 60s with network constraints")
+            Log.d("UpdateWidgetWorker", "Scheduling worker in ${SCHEDULE_DELAY_SECONDS}s with network constraints")
             WorkManager.getInstance(context)
                 .enqueue(
                     OneTimeWorkRequestBuilder<UpdateWidgetWorker>()
-                        .setInitialDelay(60, TimeUnit.SECONDS)
+                        .setInitialDelay(SCHEDULE_DELAY_SECONDS, TimeUnit.SECONDS)
                         .setConstraints(
                             Constraints.Builder()
                                 .setRequiredNetworkRequest(

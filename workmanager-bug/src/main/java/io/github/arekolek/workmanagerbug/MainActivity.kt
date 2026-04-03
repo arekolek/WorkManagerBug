@@ -77,7 +77,7 @@ fun MainScreen(
             HorizontalDivider()
             Spacer(Modifier.height(16.dp))
 
-            Text("2. Schedule update in 60s and wait on the launcher", Modifier.fillMaxWidth())
+            Text("2. Schedule update in ${SCHEDULE_DELAY_SECONDS}s and wait on the launcher", Modifier.fillMaxWidth())
             Spacer(Modifier.height(8.dp))
             Button(onClick = onAlarmManager) { Text("Update via AlarmManager") }
             Spacer(Modifier.height(4.dp))

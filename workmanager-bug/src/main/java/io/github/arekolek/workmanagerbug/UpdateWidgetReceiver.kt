@@ -27,11 +27,11 @@ class UpdateWidgetReceiver : BroadcastReceiver() {
 
     companion object {
         fun schedule(context: Context) {
-            Log.d("UpdateWidgetReceiver", "Scheduling alarm in 60s")
+            Log.d("UpdateWidgetReceiver", "Scheduling alarm in ${SCHEDULE_DELAY_SECONDS}s")
             val intent = Intent(context, UpdateWidgetReceiver::class.java)
             val pending = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE)
             val alarmManager = context.getSystemService(AlarmManager::class.java)
-            alarmManager.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + 60_000, pending)
+            alarmManager.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP, SystemClock.elapsedRealtime() + SCHEDULE_DELAY_SECONDS * 1000, pending)
         }
     }
 }

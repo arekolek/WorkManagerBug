@@ -9,6 +9,8 @@ import kotlinx.coroutines.withContext
 import java.net.HttpURLConnection
 import java.net.URL
 
+const val SCHEDULE_DELAY_SECONDS = 2 * 60L
+
 private const val TAG = "NetworkFetch"
 private const val API_URL = "https://www.google.com/generate_204"
 
