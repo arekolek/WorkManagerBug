@@ -14,33 +14,31 @@ const val SCHEDULE_DELAY_SECONDS = 2 * 60L
 private const val TAG = "NetworkFetch"
 private const val API_URL = "https://www.google.com/generate_204"
 
-fun logNetworkState(manager: ConnectivityManager, label: String) {
+fun networkStateString(manager: ConnectivityManager): String {
     val network = manager.activeNetwork
     val capabilities = manager.getNetworkCapabilities(network)
-    Log.d(
-        TAG, "$label — " +
-                "activeNetwork=$network, " +
-                "internet=${capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)}, " +
-                "validated=${capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)}"
-    )
+    return "activeNetwork=$network, " +
+            "internet=${capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)}, " +
+            "validated=${capabilities?.hasCapability(NetworkCapabilities.NET_CAPABILITY_VALIDATED)}"
 }
 
 /**
  * Attempts to fetch [API_URL] up to [maxAttempts] times with [delayMs] between retries.
  * Returns the result string on success, or an error string if all attempts fail.
  */
-suspend fun fetchWithRetry(label: String, maxAttempts: Int = 30, delayMs: Long = 2_000): String {
+suspend fun fetchWithRetry(label: String, networkStateInfo: () -> String, maxAttempts: Int = 30, delayMs: Long = 2_000): String {
     for (attempt in 1..maxAttempts) {
+        val extra = " (${networkStateInfo()})"
         val result = withContext(Dispatchers.IO) {
             try {
                 val connection = URL(API_URL).openConnection() as HttpURLConnection
                 val code = connection.responseCode
                 val date = connection.getHeaderField("Date")
                 connection.disconnect()
-                Log.d(TAG, "$label attempt #$attempt — OK (HTTP $code)")
+                Log.d(TAG, "$label attempt #$attempt$extra — OK (HTTP $code)")
                 "HTTP $code — $date"
             } catch (e: Exception) {
-                Log.e(TAG, "$label attempt #$attempt — FAILED: ${e::class.simpleName}: ${e.message}")
+                Log.e(TAG, "$label attempt #$attempt$extra — FAILED: ${e::class.simpleName}: ${e.message}")
                 null
             }
         }

@@ -19,9 +19,8 @@ class UpdateWidgetWorker(
 ) : CoroutineWorker(appContext, params) {
 
     override suspend fun doWork(): Result {
-        logNetworkState(applicationContext.getSystemService(ConnectivityManager::class.java), "Worker")
-
-        val result = fetchWithRetry("Worker")
+        val manager = applicationContext.getSystemService(ConnectivityManager::class.java)
+        val result = fetchWithRetry("Worker", { networkStateString(manager) })
         TimestampWidgetProvider.updateAllWidgets(applicationContext, result)
         return Result.success()
     }

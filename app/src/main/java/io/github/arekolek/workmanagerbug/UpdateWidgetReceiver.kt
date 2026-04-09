@@ -16,9 +16,8 @@ class UpdateWidgetReceiver : BroadcastReceiver() {
         val pendingResult = goAsync()
 
         try {
-            logNetworkState(context.getSystemService(ConnectivityManager::class.java), "Alarm")
-
-            val result = runBlocking { fetchWithRetry("Alarm") }
+            val manager = context.getSystemService(ConnectivityManager::class.java)
+            val result = runBlocking { fetchWithRetry("Alarm", { networkStateString(manager) }) }
             TimestampWidgetProvider.updateAllWidgets(context, result)
         } finally {
             pendingResult.finish()

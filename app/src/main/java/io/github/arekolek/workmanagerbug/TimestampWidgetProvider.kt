@@ -6,6 +6,7 @@ import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.net.ConnectivityManager
 import android.widget.RemoteViews
 import kotlinx.coroutines.runBlocking
 import java.time.Instant
@@ -16,7 +17,8 @@ class TimestampWidgetProvider : AppWidgetProvider() {
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         runBlocking {
-            val result = fetchWithRetry("onUpdate", maxAttempts = 1)
+            val manager = context.getSystemService(ConnectivityManager::class.java)
+            val result = fetchWithRetry("onUpdate", { networkStateString(manager) }, maxAttempts = 1)
             updateWidgets(context, appWidgetManager, appWidgetIds, result)
         }
     }
